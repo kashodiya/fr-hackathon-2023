@@ -1,0 +1,23 @@
+bank_id,bank_type,entity_type
+ING,Foreign Bank,bank
+BBVA,Foreign Bank,bank
+Silvergate,Domestic Bank,bank
+Morgan Stanley,Domestic Bank,bank
+BNP Paribas,Foreign Bank,bank
+JP Morgan,Domestic Bank,bank
+Silicon Valley Bank,Domestic Bank,bank
+Barclays,Foreign Bank,bank
+MUFG,Foreign Bank,bank
+BNY Mellon,Domestic Bank,bank
+Capital Union Bank (Bahamas),Foreign Bank,bank
+Credit Suisse,Domestic Bank,bank
+Ansbacher (Bahamas),Foreign Bank,bank
+UBS,Foreign Bank,bank
+Goldman Sachs,Domestic Bank,bank
+Cantor Fitzgerald,Broker Dealer,bank
+BNYM,Domestic Bank,bank
+Nomura,Foreign Bank,bank
+Standard Chartered,Foreign Bank,bank
+Citibank,Domestic Bank,bank
+Signature,Domestic Bank,bank
+Wells Fargo,Domestic Bank,bank

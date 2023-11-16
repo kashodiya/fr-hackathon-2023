@@ -1,0 +1,19 @@
+crypto_id_from,relationsihp_type,crypto_id_to
+Binance,controls,Binance Labs
+Binance,is issuer of,Binance USD
+Binance Labs,invests in,CoinMarketCap
+Binance Labs,invests in,FTX
+BlockFi,provides margin lending to,Three Arrows Capital
+Circle,is issuer of,USDC
+Coinbase,controls,Coinbase Ventures
+Coinbase Ventures,invests in,FTX
+FTX,controls,Alameda Research
+FTX,controls,Serum
+FTX,controls,Voyager Digital
+FTX,invests in,BlockFi
+Genesis,provides margin lending to,Three Arrows Capital
+Sam Bankman-Fried,controls,FTX
+Sam Bankman-Fried,controls,Robinhood
+Tether,controls,Bitfinex
+Three Arrows Capital,invests in,Bitcoin
+Voyager Digital,loans to,Three Arrows Capital

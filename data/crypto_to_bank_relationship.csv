@@ -1,0 +1,10 @@
+crypto_id,relationship_type,bank_id
+BlockFi,has deposits in,Silicon Valley Bank
+Circle,has deposits in,Silvergate
+Coinbase,has deposits in,Signature
+Coinbase,has deposits in,Silvergate
+FTX,has deposits in,Signature
+Tether,keeps stable coin reserves in,Ansbacher (Bahamas)
+Tether,keeps stable coin reserves in,Cantor Fitzgerald
+Tether,keeps stable coin reserves in,Capital Union Bank (Bahamas)
+USDC,keeps stable coin reserves in,BNYM

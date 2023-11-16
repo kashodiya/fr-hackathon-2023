@@ -1,0 +1,40 @@
+bank_id,relationship_type,crypto_id
+BBVA,invests in,Covault
+BNP Paribas,invests in,Digital Asset
+BNP Paribas,invests in,Fireblocks
+BNP Paribas,invests in,HQLAx
+BNY Mellon,invests in,Coin Metrics
+BNY Mellon,invests in,Fireblocks
+BNY Mellon,invests in,HQLAx
+BNY Mellon,invests in,Talos
+Barclays,invests in,RealBlocks
+Citi,invests in,Digital Asset
+Citi,invests in,HQLAx
+Citibank,invests in,Blockdaemon
+Citibank,invests in,Contour
+Citibank,invests in,SETL
+Citibank,invests in,TRM
+Citibank,invests in,Talos
+Citibank,invests in,amberdata
+Credit Suisse,invests in,HQLAx
+Goldman Sachs,invests in,Anchorage Digital
+Goldman Sachs,invests in,Blockdaemon
+Goldman Sachs,invests in,Certik
+Goldman Sachs,invests in,Coin Metrics
+Goldman Sachs,invests in,Elwood Technologies
+Goldman Sachs,invests in,HQLAx
+ING,invests in,HQLAx
+JP Morgan,invests in,Digital Asset
+JP Morgan,invests in,HQLAx
+JP Morgan Chase,invests in,ConsenSys
+MUFG,invests in,Bitflyer
+MUFG,invests in,Coinbase
+Morgan Stanley,invests in,Figment
+Morgan Stanley,invests in,NYDIG
+Nomura,invests in,Quantstamp
+Standard Chartered,invests in,Cobalt
+Standard Chartered,invests in,Ripple
+UBS,invests in,Axoni
+UBS,invests in,HQLAx
+Wells Fargo,invests in,Elliptic
+Wells Fargo,invests in,Talos

@@ -1,5 +1,9 @@
 # DANG!
 - This is a hackathon project from FR 2023
+- See the app live: https://kashodiya.github.io/fr-hackathon-2023/
+
+
+## Info
 - It shows relationships of banks and crypto exchanges
 - Data model
     - bank_entity.csv: bank_id,bank_type,entity_type

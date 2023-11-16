@@ -11,10 +11,16 @@ const Home = {
     template: '#home-template',
     data() {
         return {
-            graphEle: null
+            graphEle: null,
+            showOrphanNodes: false,
+            nodesView: null
         }
     },
     methods: {
+        showOrphanNodesChanged(){
+            // console.log(this.showOrphanNodes);
+            this.nodesView.refresh();  
+        },
         createNodesEdges() {
             // sharedData.bankEntities
             // sharedData.cryptoEntities
@@ -25,33 +31,33 @@ const Home = {
             let edges = [];
             sharedData.bankEntities.forEach((v, i) => {
                 // console.log({ n: 'bankEntities', i, v });
-                nodes.push({id: v.bank_id, label: v.bank_id, group: 1});
+                nodes.push({ id: v.bank_id, label: v.bank_id, group: 1 });
             })
             sharedData.cryptoEntities.forEach((v, i) => {
                 // console.log({ n: 'cryptoEntities', i, v, type: v['entity_type'] });
-                nodes.push({id: v.crypto_id, label: v.crypto_id, group: v.entity_type});
+                nodes.push({ id: v.crypto_id, label: v.crypto_id, group: v.entity_type });
             })
             // console.log(nodes);
             sharedData.bannk2Crypto.forEach((v, i) => {
                 // console.log({ n: 'bannk2Crypto', i, v });
                 // ,relationship_type,
-                edges.push({from: v.bank_id, to: v.crypto_id, label: v.relationship_type});
+                edges.push({ from: v.bank_id, to: v.crypto_id, label: v.relationship_type });
             })
             sharedData.crypto2Crypto.forEach((v, i) => {
                 //crypto_id_from,relationsihp_type,crypto_id_to
                 // console.log({ n: 'crypto2Crypto', i, v });
                 // ,relationship_type,
-                edges.push({from: v.crypto_id_from, to: v.crypto_id_to, label: v.relationsihp_type});
+                edges.push({ from: v.crypto_id_from, to: v.crypto_id_to, label: v.relationsihp_type });
             })
             sharedData.crypto2Bannk.forEach((v, i) => {
                 //crypto_id,relationship_type,bank_id
                 // console.log({ n: 'crypto2Bannk', i, v });
                 // ,relationship_type,
-                edges.push({from: v.crypto_id, to: v.bank_id, label: v.relationship_type});
+                edges.push({ from: v.crypto_id, to: v.bank_id, label: v.relationship_type });
             })
 
 
-            return {nodes, edges}
+            return { nodes, edges }
 
         },
         createGraph() {
@@ -61,15 +67,58 @@ const Home = {
 
             // create a network
             var container = this.graphEle;
+
+            // let edgesView = new vis.DataView(edges);
+
+            var edgesDataSet = new vis.DataSet();
+            edgesDataSet.add(edges);
+
+            var nodesDataSet = new vis.DataSet();
+            nodesDataSet.add(nodes);
+
+            // var nodesView = new vis.DataView(nodesDataSet);
+            var edgesView = new vis.DataView(edgesDataSet);
+            // var edgesView = new vis.DataView(edgesDataSet, {
+            //     filter: function (node) {
+            //         return true;
+            //     }
+            // });
+
+            // var nodesView = new vis.DataView(nodes, {
+            //     filter: function (item) {
+            //       return (item.group == 1);
+            //     },
+            //     fields: ['id', 'label']
+            //   });
+
+            let self = this;
+
+            this.nodesView = new vis.DataView(nodesDataSet, {
+                filter: (node) => {
+                    let returnVal = true;
+                    if(self.showOrphanNodes){
+                        connEdges = edgesView.get({
+                            filter: function (edge) {
+                                return ((edge.to == node.id) || (edge.from == node.id));
+                            }
+                        });
+                        returnVal = connEdges.length > 0;
+                    }
+                    return returnVal;
+                }
+            });
+
             var data = {
-                nodes: nodes,
+                nodes: this.nodesView,
                 edges: edges,
             };
+
+
             var options = {
-                nodes: {
-                    shape: "dot",
-                    size: 16,
-                },
+                // nodes: {
+                //     shape: "dot",
+                //     size: 16,
+                // },
                 physics: {
                     forceAtlas2Based: {
                         gravitationalConstant: -26,
@@ -82,8 +131,14 @@ const Home = {
                     timestep: 0.35,
                     stabilization: { iterations: 150 },
                 },
+
+
             };
             var network = new vis.Network(container, data, options);
+
+
+
+
         }
     },
     mounted() {
@@ -166,7 +221,7 @@ async function getFileData(fileName) {
 }
 
 async function getData() {
-    console.log('Getting meta data.');
+    console.log('Fetching data.');
     sharedData.bankEntities = await getFileData('bank_entity.csv');
     sharedData.cryptoEntities = await getFileData('crypto_entity.csv');
     sharedData.crypto2Crypto = await getFileData('crypto_to_crypto_relationship.csv');

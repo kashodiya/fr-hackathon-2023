@@ -16,6 +16,11 @@
             height: 600px;
             /* background-color: grey; */
         }
+
+        #showOrphanNodes{
+            margin-right: 5px;
+            padding-top: -5px;
+        }
     </style>
 </head>
 
@@ -48,6 +53,11 @@
                     Banks and crypto coin exchanges
                 </v-card-title>
                 <v-card-text>
+                    <v-switch id="showOrphanNodes" v-model="showOrphanNodes" @change="showOrphanNodesChanged" label="Toggle Orphan Nodes"></v-switch>
+                    <!-- <input id="showOrphanNodes" v-model="showOrphanNodes" @change="showOrphanNodesChanged" type="checkbox"/>
+                    <label for="showOrphanNodes">Toggle Orphan Nodes</label> -->
+                    <!-- <form action="">
+                    </form> -->
                     <div class="graph" ref="graph"></div>
                 </v-card-text>
             </v-card>
